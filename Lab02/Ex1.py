@@ -8,7 +8,7 @@ import random
 import statistics
 
 
-x = 10
+x = 0
 
 mecanic1 = stats.expon.rvs(scale = 1/4,size = 10000)
 mecanic2 = stats.expon.rvs(scale = 1/6,size = 10000)
@@ -24,7 +24,7 @@ for element in range(len(mecanic1)):
         mecanic3.append(mecanic2[element])
 
 print("The mean is : ", np.mean(mecanic3))
-print("Standard derivation: ", statistics.stdev(mecanic3))
+print("Standard derivation: ", np.std(mecanic3))
 
 az.plot_dist(mecanic3)
 
