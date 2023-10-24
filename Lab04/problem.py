@@ -34,18 +34,18 @@ timeAndAlfa = []
 for i in range(pointsSize):
     timeAndAlfa.append (timePlaced[i] + alfaDistribution[i])
     
-az.plot_posterior({"Trafic": traficVolume, "TimePlaced + cook": timeAndAlfa})
+az.plot_posterior({"Trafic": traficVolume,"Time To Order": timePlaced ,"TimePlaced + cook": timeAndAlfa})
 plt.show()
 
 maxServingTime = 15
-alfaStep = 0.5 # cat de aproape probam alfa
+alfaStep = 0.1 # cat de aproape probam alfa
 
 while True:
     alfa += alfaStep
     alfaDistribution = stats.expon.rvs(loc=alfa, size = pointsSize)
     timeAndAlfa = []
     for i in range(pointsSize):
-        timeAndAlfa.append (timePlaced[i] + alfaDistribution[i])
+        timeAndAlfa.append(timePlaced[i] + alfaDistribution[i])
     good = 0
     for i in timeAndAlfa:
         if i < maxServingTime:
@@ -62,13 +62,3 @@ alfaDistribution = stats.expon.rvs(loc = alfa,size = pointsSize)
 cookTime = timePlaced + alfaDistribution
 
 print("Avarege cooking time: " + str(statistics.mean(cookTime)))
-
-
-
-
-
-
-
-
-
-
