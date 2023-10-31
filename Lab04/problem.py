@@ -52,7 +52,7 @@ while True:
             good += 1
     if good / len(timeAndAlfa) < 0.95:
         break
-print ("Alfa to serve all clients in a Hour: " + str(alfa))
+print ("Time to serve all clients in a Hour: " + str(alfa))
 
 
 timePlaced = stats.norm.rvs(loc = 2, scale = 0.5, size = pointsSize)
