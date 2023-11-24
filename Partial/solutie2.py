@@ -1,6 +1,7 @@
 import pymc as pm
 import matplotlib.pyplot as plt
 import numpy as np
+import arviz as az
 
 #punctele se vor intalni in jurul valorii 20 , timp mediu de asteptare
 mu = 20
@@ -20,5 +21,6 @@ with pm.Model() as model:
     trace = pm.sample(1000, tune=2000, cores = 1,return_inferencedata=True)
 # afisam din inferenta graful posteriori
 posterior_data = trace["posterior"]
-
+ppc = pm.sample_posterior_predictive(trace, model=model)
+plt.plot(ppc)
 plt.show()
