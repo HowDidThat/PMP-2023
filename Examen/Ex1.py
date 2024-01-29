@@ -41,8 +41,3 @@ az.plot_forest(idata_prem, hdi_prob=0.95, var_names=["crim"], ax=axs[1])
 az.plot_forest(idata_prem, hdi_prob=0.95, var_names=["indus"], ax=axs[2])
 plt.tight_layout()
 plt.savefig("Ex1")
-
-ppc = pm.sample_posterior_predictive(model, samples=idata_prem, var_names=["medv"])
-
-hdi_50 = az.hdi(ppc["medv"].flatten(), hdi_prob=0.5)
-print(f"50% HDI for medv: {hdi_50}")
